@@ -8,5 +8,5 @@ RUN go get -d -v ./...
 RUN go install -v ./...
 
 FROM scratch
-COPY --from=build /go/bin/app /go/bin/app
-ENTRYPOINT ["/go/bin/app"]
+COPY --from=build /go/bin/app/HelloWorld /go/bin/app/HelloWorld
+ENTRYPOINT ["/go/bin/app/HelloWorld"]
