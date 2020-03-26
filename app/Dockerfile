@@ -6,7 +6,3 @@ RUN go get -d -v ./...
 
 # Install the package
 RUN go install -v ./...
-
-FROM scratch
-COPY --from=build /go/bin/app/HelloWorld /go/bin/app/HelloWorld
-ENTRYPOINT ["/go/bin/app/HelloWorld"]
