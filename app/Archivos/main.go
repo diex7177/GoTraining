@@ -7,7 +7,16 @@ import (
 )
 
 func main()  {
+	isCorrect := readFile()
+	fmt.Println(isCorrect)
+}
+
+func readFile() bool{
 	archivo, err := os.Open("./test.txt")
+	defer func(){
+		 archivo.Close()
+		 fmt.Println("Difer")
+	}()
 
 	if err != nil{
 		fmt.Println("Hubo un error ", err)
@@ -19,4 +28,6 @@ func main()  {
 		linea := scanner.Text()
 		fmt.Println(linea)
 	}
+
+	return true
 }
