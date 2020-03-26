@@ -13,13 +13,19 @@ func main()  {
 
 func readFile() bool{
 	archivo, err := os.Open("./test.txt")
+
 	defer func(){
 		 archivo.Close()
 		 fmt.Println("Difer")
+
+		 r := recover()
+		 if r != nil{
+		 	fmt.Println("recover from ",r)
+		 }
 	}()
 
 	if err != nil{
-		fmt.Println("Hubo un error ", err)
+		panic(err)
 	}
 
 	scanner := bufio.NewScanner(archivo)
