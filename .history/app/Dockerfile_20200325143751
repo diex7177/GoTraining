@@ -1,0 +1,4 @@
+FROM golang:latest
+WORKDIR /go/src/myapp
+COPY . .
+RUN go build -o /go/bin/myapp cmd/main.go
